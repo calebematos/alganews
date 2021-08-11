@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 
 export const Wrapper = styled.table`
+  width: 100%;
   color: #274060;
   background-color: ${transparentize(0.95, '#274060')};
 `
