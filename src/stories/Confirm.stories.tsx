@@ -5,9 +5,10 @@ import  Confirm  from '../components/Confirm/Confirm';
 export default {
   title: 'Example/Confirm',
   component: Confirm,
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
+  argTypes: {
+   onConfirm: {action: 'confirm'},
+   onCancel: {action: 'cancel'},
+  },
 } as ComponentMeta<typeof Confirm>;
 
 const Template: ComponentStory<typeof Confirm> = (args) => <Confirm {...args} />;
