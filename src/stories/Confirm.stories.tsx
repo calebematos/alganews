@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import  Confirm  from '../components/Confirm/Confirm';
+import  Confirm  from '../app/components/Confirm/Confirm';
 
 export default {
   title: 'Example/Confirm',

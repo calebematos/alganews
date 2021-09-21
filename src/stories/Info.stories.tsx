@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import  Info  from '../components/Info/Info';
+import  Info  from '../app/components/Info/Info';
 
 export default {
   title: 'Example/Info',
