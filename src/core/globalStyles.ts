@@ -10,6 +10,8 @@ export default createGlobalStyle`
 
  body {
     font-family: 'Lato', sans-serif;
+    background-color: #F3F8FA;
+    color: #274060;
  }
 
 `
