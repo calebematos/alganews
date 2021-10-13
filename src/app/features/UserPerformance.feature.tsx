@@ -24,7 +24,7 @@ const FAKE_DATA = {
   ]
 }
 
-export default function UserMetrics(){
+export default function UserPerformance(){
   
   return <Chart 
     title="Average performance in the last 12 months"
