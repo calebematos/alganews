@@ -7,13 +7,14 @@ MdEditor.unuse(Plugins.FontUnderline)
 const parser = new MarkdownIt();
 
 interface MarkdownEditorProps {
-
+  onChange?: (text: string) => any
 }
 
 function MarkdownEditor(props: MarkdownEditorProps){
   return <MdEditor 
       style={{ height: '300px' }}
       renderHTML={text => parser.render(text)} 
+      onChange={ ({text}) => props.onChange && props.onChange(text) }
     />
 
 }

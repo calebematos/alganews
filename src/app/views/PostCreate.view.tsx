@@ -1,13 +1,14 @@
 import DefaultLayout from "../layouts/Default/Default.layout";
 import usePageTitle from "../../core/hooks/usePageTitle";
-import EditorsList from "../features/EditorsList.feature";
+import PostForm from "../features/PostForm.feature";
 
 
-export default function EditorsListView (){
-  usePageTitle('Editors list')
+
+export default function PostCreateView (){
+  usePageTitle('New post')
 
   return <DefaultLayout>
-    <EditorsList/>
+    <PostForm />
   </DefaultLayout>
 
 }
