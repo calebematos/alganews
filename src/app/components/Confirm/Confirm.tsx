@@ -14,8 +14,8 @@ export default function Confirm({ title, onConfirm, onCancel }: ConfirmProps) {
       {title}
     </C.Tittle>
     <C.ButtonDisplay>
-      <Button label="não" variant="danger" onClick={onCancel} />
-      <Button label="sim" variant="primary" onClick={onConfirm}/>
+      <Button label="no" variant="danger" onClick={onCancel} />
+      <Button label="yes" variant="primary" onClick={onConfirm}/>
     </C.ButtonDisplay>
   </C.Wrapper>
 }
