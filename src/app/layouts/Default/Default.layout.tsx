@@ -1,3 +1,4 @@
+import confirm from '../../../core/utils/confirm'
 import Logo from '../../components/Logo'
 import Navbar from '../../components/Navbar'
 import SessionController from '../../components/SessionController'
@@ -26,6 +27,13 @@ function DefaultLayout( props : DefaultLayoutProps ){
         <SessionController 
           name="Lucas"
           description="editor for 2 years"
+          onLogout={() => {
+            confirm({
+              title:"Logout?",
+              onConfirm:() => window.alert('confirm'),
+              onCancel: () => window.alert('cancel')
+            })
+          }}
         />
       </DL.Aside>
     </DL.Main>
