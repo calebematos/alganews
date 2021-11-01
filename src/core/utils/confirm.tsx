@@ -2,13 +2,13 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Confirm from '../../app/components/Confirm/Confirm';
 
-interface confirmProps {
+interface ConfirmProps {
   title: string
   onConfirm?: () => any
   onCancel?: () => any
 }
 
-export default function confirm(props: confirmProps) {
+export default function confirm(props: ConfirmProps) {
 
   confirmAlert({
     overlayClassName:'confirm-overlay',

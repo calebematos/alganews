@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Tag } from "react-tag-input"
 import styled from "styled-components"
 import countWordsInMarkdown from "../../core/utils/countWordsInMarkdown"
+import info from "../../core/utils/info"
 import Button from "../components/Button/Button"
 import ImageUpload from "../components/ImageUpload"
 import Input from "../components/Input/Input"
@@ -13,8 +14,19 @@ export default function PostForm(){
   const [tags, setTags] = useState<Tag[]>([])
   const [body, setBody] = useState('')
 
-  return <PostFormWrapper>
-    <Input label="title" placeholder="e.g.: How I got rich learning React"/>
+  function handlerFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    info({
+      title:'Saved successfully',
+      description:'You just saved the post'
+    })
+  }
+
+  return <PostFormWrapper onSubmit={handlerFormSubmit}>
+    <Input 
+      label="title" 
+      placeholder="e.g.: How I got rich learning React"
+    />
     <ImageUpload label="Post thumbnail"/>
     <MarkdownEditor onChange={setBody}/>
     <TagInput 
