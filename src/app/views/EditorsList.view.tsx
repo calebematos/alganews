@@ -7,7 +7,7 @@ export default function EditorsListView (){
   usePageTitle('Editors list')
 
   return <DefaultLayout>
-    <EditorsList/>
+    <EditorsList />
   </DefaultLayout>
 
 }
