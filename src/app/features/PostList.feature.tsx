@@ -1,8 +1,9 @@
 import Table from "../components/Table/Table"
 import { Column, useTable } from 'react-table';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import Icon from "@mdi/react";
 import { mdiOpenInNew } from '@mdi/js';
+import PostService from "../../sdk/service/Post.service";
 
 
 type Post = {
@@ -21,6 +22,13 @@ type Post = {
 
 export default function PostList(){
     
+  useEffect(() => {
+    const posts = PostService.getAllPosts({
+      
+    })
+    console.log(posts)
+  },[])
+
   const data = useMemo<Post[]>(
     () => [
       {

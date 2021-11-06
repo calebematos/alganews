@@ -3,7 +3,8 @@ import Profile from "../components/Profile"
 
 
 export default function EditorsList() {
-
+ 
+ 
   return <EditorsListWrapper>
     <Profile editorId={1} name="Lucas" description="editor 2 years ago"/>
     <Profile editorId={2} name="Lucas" description="editor 2 years ago"/>

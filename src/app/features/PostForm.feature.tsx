@@ -3,6 +3,7 @@ import { Tag } from "react-tag-input"
 import styled from "styled-components"
 import countWordsInMarkdown from "../../core/utils/countWordsInMarkdown"
 import info from "../../core/utils/info"
+import PostService from "../../sdk/service/Post.service"
 import Button from "../components/Button/Button"
 import ImageUpload from "../components/ImageUpload"
 import Input from "../components/Input/Input"
@@ -13,18 +14,31 @@ import WordPriceCounter from "../components/WordPriceCounter"
 export default function PostForm(){
   const [tags, setTags] = useState<Tag[]>([])
   const [body, setBody] = useState('')
+  const [title, setTitle] = useState('')
 
-  function handlerFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handlerFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    const newPost = {
+      body,
+      tags: tags.map(tag => tag.text),
+      title,
+      imageUrl: ''
+    }
+
+    const savedPost = await PostService.createPost(newPost)
+
     info({
       title:'Saved successfully',
-      description:'You just saved the post'
+      description:'You just saved the post with id '+ savedPost.id
     })
   }
 
   return <PostFormWrapper onSubmit={handlerFormSubmit}>
     <Input 
-      label="title" 
+      label="title"
+      value={title}
+      onChange={e => setTitle(e.currentTarget.value)}
       placeholder="e.g.: How I got rich learning React"
     />
     <ImageUpload label="Post thumbnail"/>

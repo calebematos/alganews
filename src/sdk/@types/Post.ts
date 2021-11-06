@@ -8,4 +8,12 @@ export namespace Post {
   export type Input = AlgaNews.components['schemas']['PostInput']
   
   export type Paginated = AlgaNews.components['schemas']['PostsPaginated']
+
+  export type Query = {
+    editorId?: number
+    page?: number
+    size?: number
+    showAll?: boolean
+    sort?: [(keyof Summary), 'asc' | 'desc' ]
+  }
 }
