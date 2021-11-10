@@ -1,15 +1,18 @@
 
-import { mdiDelete, mdiTrashCan, mdiTrashCanOutline, mdiUpload } from '@mdi/js'
+import { mdiDelete, mdiUpload } from '@mdi/js'
 import Icon from '@mdi/react'
 import { ChangeEvent, useState } from 'react'
+import { isPropertySignature } from 'typescript'
+import FileService from '../../../sdk/service/File.service'
 import Button from '../Button/Button'
 import * as IU from './ImageUpload.styles'
 
 interface ImageUploadProps {
   label:string
+  onImageUpload: (imageUrl: string) => any
 }
 
-function ImageUpload({ label } : ImageUploadProps) {
+function ImageUpload({ label, onImageUpload } : ImageUploadProps) {
   
   const [filePreview, setFilePreview] = useState<string | null>(null)
   
@@ -19,8 +22,11 @@ function ImageUpload({ label } : ImageUploadProps) {
     if(file) {
       const reader = new FileReader()
 
-      reader.addEventListener('load', e => {
+      reader.addEventListener('load', async e => {
         setFilePreview(String(e.target?.result))
+
+        const imageUrl = await FileService.upload(file)
+        onImageUpload(imageUrl)
       })
 
       reader.readAsDataURL(file)

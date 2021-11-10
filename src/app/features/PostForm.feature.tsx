@@ -15,6 +15,7 @@ export default function PostForm(){
   const [tags, setTags] = useState<Tag[]>([])
   const [body, setBody] = useState('')
   const [title, setTitle] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
 
   async function handlerFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -23,7 +24,7 @@ export default function PostForm(){
       body,
       tags: tags.map(tag => tag.text),
       title,
-      imageUrl: ''
+      imageUrl
     }
 
     const savedPost = await PostService.createPost(newPost)
@@ -41,7 +42,10 @@ export default function PostForm(){
       onChange={e => setTitle(e.currentTarget.value)}
       placeholder="e.g.: How I got rich learning React"
     />
-    <ImageUpload label="Post thumbnail"/>
+    <ImageUpload 
+      onImageUpload={(imageUrl)=> setImageUrl(imageUrl)}
+      label="Post thumbnail"
+    />
     <MarkdownEditor onChange={setBody}/>
     <TagInput 
       placeholder="Insert the tags for this post"

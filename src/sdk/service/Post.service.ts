@@ -8,7 +8,7 @@ class PostService extends Service {
   
   static getAllPosts(search: Post.Query) {
     const queryString = generateQueryString(search)
-    console.log('search: ',search)
+    
     return this.Http
       .get<Post.Paginated>('/posts'.concat(queryString))
       .then(this.getData)

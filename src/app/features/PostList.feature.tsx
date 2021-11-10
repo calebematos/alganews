@@ -26,7 +26,7 @@ export default function PostList(){
     const posts = PostService.getAllPosts({
       
     })
-    console.log(posts)
+    
   },[])
 
   const data = useMemo<Post[]>(
