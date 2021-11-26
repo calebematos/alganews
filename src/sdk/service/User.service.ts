@@ -3,12 +3,16 @@ import Service from "../Service";
 
 class UserService extends Service {
 
-  static async getAllEditors() {
+  static getAllEditors() {
     return this.Http
-      .get<User.EditorSummary[]>('users/editors')
+      .get<User.EditorSummary[]>('/users/editors')
       .then(this.getData)
+  }
 
-
+  static getEditorById(editorId: number) {
+    return this.Http
+      .get<User.EditorDetailed>(`/users/editors/${editorId}`)
+      .then(this.getData)
   }
 }
 
